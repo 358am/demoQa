@@ -1,11 +1,14 @@
 package any;
 
-import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$x;
 
-public class selectors {
+/**
+ * Форма Practice Form
+ * **/
+
+public class Selectors {
 
     public SelenideElement url() {
         return $x("https://demoqa.com/automation-practice-form")
