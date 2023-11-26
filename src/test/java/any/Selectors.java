@@ -10,6 +10,7 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class Selectors {
 
+    public String url = "https://demoqa.com/automation-practice-form";
     public SelenideElement url() {
         return $x("https://demoqa.com/automation-practice-form")
                 .as("Форма для тестирования");
@@ -26,8 +27,16 @@ public class Selectors {
         return $x("//input[@id=('userEmail')]")
                 .as("Почта");
     }
-    public SelenideElement genderRadio() {
+    public SelenideElement genderRadioMale() {
         return $x("//input[@id=('gender-radio-1')]")
+                .as("Гендер");
+    }
+    public SelenideElement genderRadioFemale() {
+        return $x("//input[@id=('gender-radio-2')]")
+                .as("Гендер");
+    }
+    public SelenideElement genderRadioOther() {
+        return $x("//input[@id=('gender-radio-3')]")
                 .as("Гендер");
     }
     public SelenideElement dateBirth() {
