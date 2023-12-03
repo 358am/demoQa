@@ -1,4 +1,4 @@
-package any;
+package pages;
 
 import com.codeborne.selenide.SelenideElement;
 
@@ -8,9 +8,14 @@ import static com.codeborne.selenide.Selenide.$x;
  * Форма Practice Form
  * **/
 
-public class Selectors {
+public class PracticeForm {
 
-    public String url = "https://demoqa.com/automation-practice-form";
+    public String URL = "https://demoqa.com/automation-practice-form";
+
+    public SelenideElement title() {
+        return $x("//div/header/a/img")
+                .as("Заголовок");
+    }
     public SelenideElement url() {
         return $x("https://demoqa.com/automation-practice-form")
                 .as("Форма для тестирования");
