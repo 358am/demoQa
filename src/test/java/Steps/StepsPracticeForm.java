@@ -23,20 +23,27 @@ public class StepsPracticeForm {
     }
     // Заполнить поле Имя
     public void setValueName(String name) {
-        practiceForm.firstName().setValue(name);
-        practiceForm.firstName().shouldHave(text(name));
+        practiceForm.firstName().setValue(name)
+                .shouldHave(text(name));
     }
     // Заполнить поле Фамилия
     public void setValueFamily(String family) {
-        practiceForm.lastName().setValue(family);
-        practiceForm.firstName().shouldHave(text(family));
+        practiceForm.lastName().setValue(family)
+                .shouldHave(text(family));
     }
     // Заполнить поле Емэйл
     public void setValueEmail(String email) {
-        practiceForm.email().setValue(email);
-        practiceForm.email().shouldHave(text(email));
+        practiceForm.email().setValue(email)
+                .shouldHave(text(email));
     }
-
-
+    // Выбрать радиокнопку гендер
+    public void pickGender() {
+        practiceForm.genderRadioMale();
+    }
+    // Указать номер мобильного телефона
+    public void setMobNumber(String mobNumber) {
+        practiceForm.mobNumber().setValue(mobNumber)
+                .shouldHave(text(mobNumber));
+    }
 
 }

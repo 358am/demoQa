@@ -44,6 +44,10 @@ public class PracticeForm {
         return $x("//input[@id=('gender-radio-3')]")
                 .as("Гендер");
     }
+    public SelenideElement mobNumber() {
+        return $x("//*[@id=\"userNumber\"]")
+                .as("Номер телефона");
+    }
     public SelenideElement dateBirth() {
         return $x("//input[@id=('dateOfBirthInput')]")
                 .as("Дата рождения");
