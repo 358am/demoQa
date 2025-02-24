@@ -1,15 +1,14 @@
 package Tests;
 
-
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import steps.StepsPracticeForm;
 
-
 public class Tests {
 
     private final StepsPracticeForm stepsPracticeForm = new StepsPracticeForm();
+
 
     Faker faker = new Faker();
     /**
@@ -17,6 +16,7 @@ public class Tests {
      * **/
 
     @BeforeEach
+
     public void login() {
         stepsPracticeForm.login();
     }

@@ -31,7 +31,7 @@ public class StepsPracticeForm {
         practiceForm.lastName().setValue(family)
                 .shouldHave(text(family));
     }
-    // Заполнить поле Емэйл
+    // Заполнить поле Почта
     public void setValueEmail(String email) {
         practiceForm.email().setValue(email)
                 .shouldHave(text(email));
