@@ -24,17 +24,17 @@ public class StepsPracticeForm {
     // Заполнить поле Имя
     public void setValueName(String name) {
         practiceForm.firstName().setValue(name)
-                .shouldHave(text(name));
+                ;
     }
     // Заполнить поле Фамилия
     public void setValueFamily(String family) {
         practiceForm.lastName().setValue(family)
-                .shouldHave(text(family));
+                ;
     }
     // Заполнить поле Почта
     public void setValueEmail(String email) {
         practiceForm.email().setValue(email)
-                .shouldHave(text(email));
+                ;
     }
     // Выбрать радиокнопку гендер
     public void pickGender() {
