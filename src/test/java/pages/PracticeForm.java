@@ -17,7 +17,7 @@ public class PracticeForm {
                 .as("Заголовок");
     }
     public SelenideElement url() {
-        return $x("https://demoqa.com/automation-practice-form")
+        return $x(URL)
                 .as("Форма для тестирования");
     }
     public SelenideElement firstName() {

@@ -20,6 +20,10 @@ dependencies {
                         'com.codeborne:selenide:6.19.1',
                         'com.github.javafaker:javafaker:1.0.2')
     testRuntimeOnly ('org.junit.platform:junit-platform-launcher')
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+
+
+
 }
 
 test {

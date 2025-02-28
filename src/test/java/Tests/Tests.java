@@ -3,11 +3,14 @@ package Tests;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import steps.StepsPracticeForm;
 
+
+@ExtendWith(SelenoidExtension.class)
 public class Tests {
 
-    private final StepsPracticeForm stepsPracticeForm = new StepsPracticeForm();
+    public final StepsPracticeForm stepsPracticeForm = new StepsPracticeForm();
 
 
     Faker faker = new Faker();
