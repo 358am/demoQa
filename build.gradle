@@ -11,7 +11,6 @@ allure {
 
 repositories {
     mavenCentral()
-
 }
 
 
@@ -36,4 +35,5 @@ test {
     systemProperties System.properties
     dependsOn 'cleanTest'
     scanForTestClasses = false
+
 }
