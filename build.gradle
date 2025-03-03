@@ -19,8 +19,9 @@ dependencies {
     testImplementation ('org.junit.jupiter:junit-jupiter-engine:5.9.2',
                         'com.codeborne:selenide:6.19.1',
                         'com.github.javafaker:javafaker:1.0.2')
-    testRuntimeOnly ('org.junit.platform:junit-platform-launcher')
-    implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    testRuntimeOnly ('org.junit.platform:junit-platform-launcher',
+                    'org.slf4j:slf4j-api:1.7.32')
+    //implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
 
 
 
@@ -32,4 +33,7 @@ test {
         exceptionFormat "full"
     }
     useJUnitPlatform()
+    systemProperties System.properties
+    dependsOn 'cleanTest'
+    scanForTestClasses = false
 }
