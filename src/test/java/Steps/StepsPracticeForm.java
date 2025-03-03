@@ -3,8 +3,7 @@ package steps;
 
 import pages.PracticeForm;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.open;
 
 /**
@@ -24,17 +23,17 @@ public class StepsPracticeForm {
     // Заполнить поле Имя
     public void setValueName(String name) {
         practiceForm.firstName().setValue(name)
-                ;
+                .shouldHave(value(name));
     }
     // Заполнить поле Фамилия
     public void setValueFamily(String family) {
         practiceForm.lastName().setValue(family)
-                ;
+                .shouldHave(value(family));
     }
     // Заполнить поле Почта
     public void setValueEmail(String email) {
         practiceForm.email().setValue(email)
-                ;
+                .shouldHave(value(email));
     }
     // Выбрать радиокнопку гендер
     public void pickGender() {
