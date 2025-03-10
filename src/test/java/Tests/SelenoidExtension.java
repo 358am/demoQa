@@ -26,5 +26,6 @@ public class SelenoidExtension implements BeforeAllCallback {
         capabilities.addArguments("--no-sandbox");
         Configuration.browserCapabilities = capabilities;
         Configuration.browserCapabilities.setCapability("selenoid:options", options);
+        Configuration.holdBrowserOpen = true;
     }
 }

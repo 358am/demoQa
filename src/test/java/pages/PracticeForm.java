@@ -85,4 +85,9 @@ public class PracticeForm {
         return $x("//button[@id=('submit')]")
                 .as("Кнопка ");
     }
+
+    public  SelenideElement ThanksFor () {
+        return $x("//div[text() = 'Thanks for submitting the form']")
+                .as("Заголовок заполненной формы");
+    }
 }

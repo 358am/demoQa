@@ -35,14 +35,23 @@ public class StepsPracticeForm {
         practiceForm.email().setValue(email)
                 .shouldHave(value(email));
     }
-    // Выбрать радиокнопку гендер
+    // Выбрать радиокнопку гендер муж
     public void pickGender() {
-        practiceForm.genderRadioMale();
+        practiceForm.genderRadioMale().parent().click();
     }
     // Указать номер мобильного телефона
     public void setMobNumber(String mobNumber) {
         practiceForm.mobNumber().setValue(mobNumber)
-                .shouldHave(text(mobNumber));
+                .shouldHave(value(mobNumber));
+    }
+    //Нажать кнопку submit
+    public void pickSubmit() {
+        practiceForm.submit().scrollTo().click();
+    }
+
+    public void checkHeader() {
+        practiceForm.ThanksFor().
+                shouldBe(visible);
     }
 
 }
