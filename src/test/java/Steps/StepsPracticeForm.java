@@ -38,6 +38,7 @@ public class StepsPracticeForm {
     // Выбрать радиокнопку гендер муж
     public void pickGender() {
         practiceForm.genderRadioMale().parent().click();
+        practiceForm.genderRadioMale().shouldHave(value("Male"));
     }
     // Указать номер мобильного телефона
     public void setMobNumber(String mobNumber) {
