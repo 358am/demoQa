@@ -1,8 +1,10 @@
 package Tests;
 
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.github.javafaker.Faker;
+import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -12,15 +14,12 @@ import steps.StepsPracticeForm;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$$;
-
-
 @ExtendWith(SelenoidExtension.class)
 public class Tests {
 
     public final StepsPracticeForm stepsPracticeForm = new StepsPracticeForm();
     PracticeForm practiceForm = new PracticeForm();
+    GetLocalDate getLocalDate = new GetLocalDate();
 
     Faker faker = new Faker();
     String name = faker.name().firstName();
@@ -32,7 +31,6 @@ public class Tests {
      * **/
 
     @BeforeEach
-
     public void login() {
         stepsPracticeForm.login();
     }
@@ -50,20 +48,38 @@ public class Tests {
         //Нужно проверить успешное сохранения, в моем случае это всплывашка с заголовком и ранее введенные значения в формате таблицы
 
         //Хэш мэп, для хранения ожидаемых значений в таблице
-        Map<String, String> expectedData = new HashMap<String, String>(){{
-            put("Name", name + " " + lastName);
+        Map<String, String> expectedData = new HashMap<String, String>() {{
+            put("Student Name", name + " " + lastName);
             put("Mobile", mobNumber);
+            put("Student Email", "");
+            put("Gender", "Male");
+            put("Date of Birth", getLocalDate.getDate());
+            put("Subjects", "");
+            put("Hobbies", "");
+            put("Picture", "");
+            put("Address", "");
+            put("State and City", "");
+
         }};
 
-        //Ищем таблицу значений
-        ElementsCollection table = $$(".table-responsive tbody tr").snapshot();
-        if (!table.isEmpty()) {
-        for (SelenideElement tableElement: table) {
-            String key = tableElement.$("td").text();
-            String expectedValue = expectedData.get(key);
+        //Объект класса СофтАсерт, поможет проверить всю коллекцию, даже если не все тесты зеленые
+        SoftAssertions softAssertions = new SoftAssertions();
 
-            tableElement.$("td", 1).shouldHave(text(expectedValue));
-        }
+        //Ищем таблицу значений
+        ElementsCollection table = Selenide.$$(".table-responsive tbody tr").snapshot();
+        if (!table.isEmpty()) {
+            for (SelenideElement tableElement : table) {
+                String key = tableElement.$("td").text();
+                String expectedValue = expectedData.get(key);
+
+                String actualValue = tableElement.$("td", 1).text();
+                //Сравниваем значения из коллекции со значениеим из мапы
+                softAssertions.assertThat(actualValue)
+                        .as("Result in tableElement %s was %s, but expected %s", key, actualValue, expectedValue)
+                        .isEqualTo(expectedValue);
+            }
+            softAssertions.assertAll();
         }
     }
+
 }
