@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @ExtendWith(SelenoidExtension.class)
-public class Tests {
+public class TestsElementsCollections {
 
     public final StepsPracticeForm stepsPracticeForm = new StepsPracticeForm();
     PracticeForm practiceForm = new PracticeForm();
@@ -45,7 +45,9 @@ public class Tests {
         stepsPracticeForm.pickSubmit();
         stepsPracticeForm.checkHeader();
 
-        //Нужно проверить успешное сохранения, в моем случае это всплывашка с заголовком и ранее введенные значения в формате таблицы
+        /**
+         * Нужно проверить успешное сохранения, в моем случае это всплывашка с заголовком и ранее введенные значения в формате таблицы
+         **/
 
         //Хэш мэп, для хранения ожидаемых значений в таблице
         Map<String, String> expectedData = new HashMap<String, String>() {{
