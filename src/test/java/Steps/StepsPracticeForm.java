@@ -40,6 +40,37 @@ public class StepsPracticeForm {
         practiceForm.genderRadioMale().parent().click();
         practiceForm.genderRadioMale().shouldHave(value("Male"));
     }
+
+    //Получить установленную дату рождения в виде строки
+    public String getBd() {
+        String bd =  practiceForm.dateBirthOnSavedForm().getText();
+        return bd;
+    }
+    // Выбрать заданные число месяц год для поля дата рождения
+    public void setBD() {
+        clickDateBirth();
+        setMonthFebruary();
+        setYear();
+        setNumberBd();
+    }
+    //Выбрать число дата рождения
+    public void setNumberBd() {
+        practiceForm.dateBirthNumber().click();
+    }
+    //Выбрать 1996 год в календаре дата рождения
+    public void setYear() {
+        practiceForm.dateBirthYearPicker().selectOption("1996");
+    }
+    // Выбрать февраль в календаре даты рождения
+    public void setMonthFebruary() {
+        practiceForm.dateBirthMonthPicker()
+                .selectOption(1);
+    }
+    // Кликнуть по календарю дата рождения
+    public void clickDateBirth() {
+        practiceForm.dateBirth()
+                .click();
+    }
     // Указать номер мобильного телефона
     public void setMobNumber(String mobNumber) {
         practiceForm.mobNumber().setValue(mobNumber)
