@@ -23,7 +23,7 @@ public class TestsWithExecuteJavascritpt {
     Faker faker = new Faker();
     String name = faker.name().firstName();
     String lastName = faker.name().lastName();
-    String email = faker.internet().emailAddress();
+    String emailAddress = faker.internet().emailAddress();
     String mobNumber = faker.numerify("##########");
 
     /**
@@ -39,8 +39,9 @@ public class TestsWithExecuteJavascritpt {
     void positiveReg() {
         stepsPracticeForm.setValueName(name);
         stepsPracticeForm.setValueFamily(lastName);
-        //stepsPracticeForm.setValueEmail(email);
+        stepsPracticeForm.setValueEmail(emailAddress);
         stepsPracticeForm.pickGender();
+        stepsPracticeForm.setBD();
         stepsPracticeForm.setMobNumber(mobNumber);
         stepsPracticeForm.pickSubmit();
         stepsPracticeForm.checkHeader();
@@ -54,9 +55,9 @@ public class TestsWithExecuteJavascritpt {
         Map<String, String> expectedData = new HashMap<String, String>() {{
             put("Student Name", name + " " + lastName);
             put("Mobile", mobNumber);
-            put("Student Email", "");
+            put("Student Email", emailAddress);
             put("Gender", "Male");
-            put("Date of Birth", getLocalDate.getDate());
+            put("Date of Birth", stepsPracticeForm.getBd());
             put("Subjects", "");
             put("Hobbies", "");
             put("Picture", "");
