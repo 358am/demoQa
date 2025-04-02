@@ -52,6 +52,22 @@ public class PracticeForm {
         return $x("//input[@id=('dateOfBirthInput')]")
                 .as("Дата рождения");
     }
+
+    public SelenideElement dateBirthOnSavedForm() {
+        return $x("//tbody/tr[5]/td[2]")
+                .as("Значение ДР на форме успешного сохранения");
+    }
+    public SelenideElement dateBirthMonthPicker() {
+        return $x("//*[@id='dateOfBirth']//div[1]/select").
+                as("Выбор месяца");
+    }
+    public SelenideElement dateBirthYearPicker() {
+        return $x("//*[@id=\"dateOfBirth\"]//div[2]/select")
+                .as("Выбор года");
+    }
+    public SelenideElement dateBirthNumber() {
+        return $x("//*[@id='dateOfBirth']//div[text()='26']");
+    }
     public SelenideElement subjectContainer() {
         return $x("//input[@id=('subjectsContainer')]")
                 .as("Текстовое поле сабж");
