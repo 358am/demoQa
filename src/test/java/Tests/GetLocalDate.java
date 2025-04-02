@@ -14,4 +14,13 @@ public class GetLocalDate {
         //System.out.println(dateNow);
         return dateNow;
     }
+
+     String getDateForInput() {
+        LocalDate localDate = LocalDate.now();
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd MMM yyyy", Locale.ENGLISH);
+        String dateNow = localDate.format(dateTimeFormatter);
+        //System.out.println(dateNow);
+
+         return dateNow;
+     }
 }
